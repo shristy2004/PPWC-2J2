@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main() {
+    float amount_credited, food_budget, other_expenses, savings;
+    float food_expenses, loan_amount, simple_interest;
+    int rate, time;
+
+    printf("How much amount is credited in acc: \n");
+    scanf("%f", &amount_credited);
+
+    printf("Monthly food budget: \n");
+    scanf("%f", &food_budget);
+
+    printf("Other expenses budget:\n");
+    scanf("%f", &other_expenses);
+
+    // BUDGET ALLOCATION DETAILS
+    printf("Amount credited: %.2f\nMonthly food budget: %.2f\nOther expenses: %.2f\n",
+           amount_credited, food_budget, other_expenses);
+
+    printf("Food expenses:\n");
+    scanf("%f", &food_expenses);
+
+    printf("Other expenses:\n");
+    scanf("%f", &other_expenses);
+
+    // SAVINGS THIS MONTH
+    savings = amount_credited - (food_expenses + other_expenses);
+
+    if (savings < 0) {
+        loan_amount = -savings;
+        printf("Oops! Taken loan amount.\n");
+        printf("Loan amount: %.2f\n", loan_amount);
+
+        printf("Loan interest rate (in %%):\n");
+        scanf("%d", &rate);
+
+        printf("Time (in years):\n");
+        scanf("%d", &time);
+
+        simple_interest = (loan_amount * rate * time) / 100.0;
+        printf("Interest to pay: %.2f\n", simple_interest);
+        printf("Total loan to pay: %.2f\n", loan_amount + simple_interest);
+
+    } else {
+        printf("Savings this month: %.2f\n", savings);
+    }
+
+    return 0;
+}
